@@ -1,0 +1,60 @@
+service: stefanini-test
+
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: us-east-1
+  stage: dev
+  environment:
+    DATABASE_URL: ${env:DATABASE_URL}
+    JWT_SECRET: ${env:JWT_SECRET, 'your-secret-key'}
+  timeout: 30
+  memorySize: 512
+
+functions:
+  api:
+    handler: dist/lambda.handler
+    events:
+      - http:
+          path: /{proxy+}
+          method: ANY
+          cors: true
+      - http:
+          path: /
+          method: ANY
+          cors: true
+
+plugins:
+  - serverless-offline
+  - serverless-plugin-typescript
+
+package:
+  patterns:
+    - '!node_modules/**'
+    - '!src/**'
+    - '!test/**'
+    - '!*.md'
+    - '!tsconfig*.json'
+    - '!nest-cli.json'
+    - '!.eslintrc.js'
+    - '!.prettierrc'
+    - '!.gitignore'
+    - '!prisma/**'
+    - 'dist/**'
+    - 'node_modules/@prisma/client/**'
+    - 'node_modules/.prisma/client/**'
+    - 'node_modules/@prisma/engines/**'
+    - 'package.json'
+    - 'package-lock.json'
+
+custom:
+  serverless-offline:
+    httpPort: 3000
+    host: 0.0.0.0
+    lambdaPort: 3002
+    noPrependStageInUrl: true
+    useChildProcesses: false
+    useWorkerThreads: false
+
