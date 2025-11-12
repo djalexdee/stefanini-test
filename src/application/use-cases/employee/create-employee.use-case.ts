@@ -1,6 +1,6 @@
 import { Injectable, Inject } from '@nestjs/common';
-import { IEmployeeRepository } from '../../domain/repositories/employee.repository.interface';
-import { Employee } from '../../domain/entities/employee.entity';
+import { IEmployeeRepository } from '../../../domain/repositories/employee.repository.interface';
+import { Employee } from '../../../domain/entities/employee.entity';
 
 @Injectable()
 export class CreateEmployeeUseCase {
@@ -18,8 +18,6 @@ export class CreateEmployeeUseCase {
       name,
       age,
       role,
-      createdAt: new Date(),
-      updatedAt: new Date(),
     });
 
     return employee;

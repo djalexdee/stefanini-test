@@ -47,9 +47,7 @@ export class PrismaEmployeeRepository implements IEmployeeRepository {
   }
 
   async update(id: string, employee: Partial<Employee>): Promise<Employee> {
-    const updateData: any = {
-      updatedAt: new Date(),
-    };
+    const updateData: any = {};
 
     if (employee.name !== undefined) {
       updateData.name = employee.name;

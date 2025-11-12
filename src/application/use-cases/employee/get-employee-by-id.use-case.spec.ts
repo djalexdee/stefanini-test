@@ -1,8 +1,8 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { NotFoundException } from '@nestjs/common';
 import { GetEmployeeByIdUseCase } from './get-employee-by-id.use-case';
-import { IEmployeeRepository } from '../../domain/repositories/employee.repository.interface';
-import { Employee } from '../../domain/entities/employee.entity';
+import { IEmployeeRepository } from '../../../domain/repositories/employee.repository.interface';
+import { Employee } from '../../../domain/entities/employee.entity';
 
 describe('GetEmployeeByIdUseCase', () => {
   let useCase: GetEmployeeByIdUseCase;

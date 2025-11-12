@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { GetAllEmployeesUseCase } from './get-all-employees.use-case';
-import { IEmployeeRepository } from '../../domain/repositories/employee.repository.interface';
-import { Employee } from '../../domain/entities/employee.entity';
+import { IEmployeeRepository } from '../../../domain/repositories/employee.repository.interface';
+import { Employee } from '../../../domain/entities/employee.entity';
 
 describe('GetAllEmployeesUseCase', () => {
   let useCase: GetAllEmployeesUseCase;

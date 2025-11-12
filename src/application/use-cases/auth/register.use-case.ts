@@ -1,6 +1,6 @@
 import { Injectable, Inject, ConflictException } from '@nestjs/common';
-import { IUserRepository } from '../../domain/repositories/user.repository.interface';
-import { User } from '../../domain/entities/user.entity';
+import { IUserRepository } from '../../../domain/repositories/user.repository.interface';
+import { User } from '../../../domain/entities/user.entity';
 import * as bcrypt from 'bcryptjs';
 
 @Injectable()
@@ -27,8 +27,6 @@ export class RegisterUseCase {
       email,
       password: hashedPassword,
       name,
-      createdAt: new Date(),
-      updatedAt: new Date(),
     });
 
     const { password: _, ...userWithoutPassword } = user;

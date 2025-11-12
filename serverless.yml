@@ -28,7 +28,6 @@ functions:
 
 plugins:
   - serverless-offline
-  - serverless-plugin-typescript
 
 package:
   patterns:

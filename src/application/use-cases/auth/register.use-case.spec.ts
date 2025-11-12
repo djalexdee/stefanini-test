@@ -1,8 +1,8 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { ConflictException } from '@nestjs/common';
 import { RegisterUseCase } from './register.use-case';
-import { IUserRepository } from '../../domain/repositories/user.repository.interface';
-import { User } from '../../domain/entities/user.entity';
+import { IUserRepository } from '../../../domain/repositories/user.repository.interface';
+import { User } from '../../../domain/entities/user.entity';
 
 describe('RegisterUseCase', () => {
   let useCase: RegisterUseCase;

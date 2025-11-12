@@ -1,6 +1,6 @@
 import { Injectable, Inject, NotFoundException } from '@nestjs/common';
-import { IEmployeeRepository } from '../../domain/repositories/employee.repository.interface';
-import { Employee } from '../../domain/entities/employee.entity';
+import { IEmployeeRepository } from '../../../domain/repositories/employee.repository.interface';
+import { Employee } from '../../../domain/entities/employee.entity';
 
 @Injectable()
 export class UpdateEmployeeUseCase {
@@ -25,7 +25,6 @@ export class UpdateEmployeeUseCase {
       name,
       age,
       role,
-      updatedAt: new Date(),
     });
 
     return updatedEmployee;
